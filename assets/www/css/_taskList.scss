@@ -1,0 +1,121 @@
+.task-list {
+	padding: 10px;
+	overflow: auto;
+
+	&.is-hidden {
+		display: none;
+	}
+
+	& > li {
+		height: 50px;
+		color: #fff;
+		margin-bottom: 10px;
+		position: relative;
+
+		transform: translate3d(0px,0px,0px);
+		-moz-transform: translate3d(0px,0px,0px);
+		-webkit-transform: translate3d(0px, 0px, 0px);
+
+		&.is-active {
+			-webkit-animation: bgOpcity 2.5s ease .25s;
+			-moz-animation:    bgOpcity 2.5s ease .25s;
+			-animation:        bgOpcity 2.5s ease .25s;
+		}
+
+		&.right > .task {
+			-webkit-animation: shiftRight .5s ease;
+			animation:         shiftRight .5s ease;
+
+			-webkit-animation-fill-mode: forwards;
+		    animation-fill-mode: forwards;
+		}
+
+		&.left > .task {
+			-webkit-animation: shiftLeft .5s ease;
+			animation:         shiftLeft .5s ease;
+
+			-webkit-animation-fill-mode: forwards;
+		    animation-fill-mode: forwards;
+		}
+	}
+}
+
+.task {
+	overflow: hidden;
+	width: 100%;
+	display: block;
+	line-height: 50px;
+	height: 50px;
+	border-bottom: 1px solid #81D245;
+	text-indent: 10px;
+}
+
+@keyframes shiftLeft {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+	transform: translateX(-105%);
+  }
+}
+
+@-webkit-keyframes shiftLeft {
+  0% {
+	-webkit-transform: translateX(0%);
+  }
+
+  100% {
+	-webkit-transform: translateX(-105%);
+  }
+}
+
+@keyframes shiftRight {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+	transform: translateX(105%);
+  }
+}
+
+@-webkit-keyframes shiftRight {
+  0% {
+	-webkit-transform: translateX(0%);
+  }
+
+  100% {
+	-webkit-transform: translateX(105%);
+  }
+}
+
+.task-undo {
+	position: absolute;
+	width: 100%;
+	display: block;
+	text-align: center;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	opacity: 1;
+	line-height: 50px;
+}
+
+@-webkit-keyframes bgOpcity {
+  0% {
+    background: #81D245;
+  }
+  100% {
+	background: none;
+  }
+}
+
+@keyframes bgOpcity {
+  0% {
+    background: #81D245;
+  }
+  100% {
+	background: none;
+  }
+}
